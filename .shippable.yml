@@ -122,26 +122,3 @@ build:
             cp ./scripts/sanity_chk/last_sanity.xml shippable/testresults/;
           fi;
 
-integrations:
-  notifications:
-    - integrationName: slack_integration
-      type: slack
-      recipients:
-        - "#ci"
-      branches:
-        only:
-          - master
-      on_success: never
-      on_failure: always
-    - integrationName: email
-      type: email
-      recipients:
-        - builds@zephyrproject.org
-      branches:
-        only:
-          - master
-          - net
-          - bluetooth
-          - arm
-      on_success: never
-      on_failure: never
