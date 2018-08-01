@@ -66,11 +66,19 @@ typedef unsigned long long  uint_fast64_t;
 
 typedef unsigned char       uint_least8_t;
 typedef unsigned short      uint_least16_t;
+#ifndef _GLIBCXX_USE_C99_STDINT_TR1
 typedef unsigned int        uint_least32_t;
 typedef unsigned long long  uint_least64_t;
+#else
+typedef __UINT_LEAST32_TYPE__ uint_least32_t;
+typedef __UINT_LEAST64_TYPE__ uint_least64_t;
+#endif
 
 typedef int                 intptr_t;
 typedef unsigned int        uintptr_t;
+
+typedef __INTMAX_TYPE__ intmax_t;
+typedef __UINTMAX_TYPE__ uintmax_t;
 
 #ifdef __cplusplus
 }
