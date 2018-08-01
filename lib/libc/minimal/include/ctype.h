@@ -18,6 +18,11 @@ static inline int isupper(int a)
 	return ((unsigned)(a)-'A') < 26;
 }
 
+static inline int islower(int a)
+{
+	return ((unsigned)a) >= 'a' && ((unsigned)a) <= 'z';
+}
+
 static inline int isalpha(int c)
 {
 	return (((unsigned)c|32)-'a') < 26;
@@ -63,6 +68,24 @@ static inline int toupper(int chr)
 static inline int isalnum(int chr)
 {
 	return isalpha(chr) || isdigit(chr);
+}
+
+static inline int iscntrl(int chr)
+{
+	return ((unsigned)chr) < 32;
+}
+
+static inline int isblank(int chr)
+{
+	return (chr == '\t' || chr == ' ');
+}
+
+static inline int ispunct(int chr) {
+	return (chr >= '!' && chr <= '/') ||
+		   (chr >= ':' && chr <= '@') ||
+		   (chr >= '[' && chr <= '`') ||
+		   (chr >= '{' && chr <= '~');
+
 }
 
 #ifdef __cplusplus
